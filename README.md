@@ -1,7 +1,5 @@
 # Proyecto Integrado Final: Sistema Inteligente para Recomendación de Laptops (Agente 2)
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&logo=OpenAI&logoColor=white)
-
 ## Resumen
 Este proyecto implementa un sistema multimodal de inteligencia artificial diseñado para asistir a clientes en la compra de equipos de cómputo. La arquitectura combina un **Frontend moderno** en React para la interacción con el usuario y un **Backend robusto** en FastAPI con capacidades de reconocimiento de imágenes (Computer Vision) y procesamiento de lenguaje natural (LLM).
 
@@ -32,47 +30,11 @@ El núcleo del proyecto es el "Agente 2", un sistema capaz de reconocer producto
 
 El Agente 2 opera mediante un flujo secuencial que transforma entradas multimodales (visión + lenguaje) en una solicitud de negocio estructurada.
 
-### Diagrama de Proceso (Mermaid)
+### Diagrama de Proceso
 
-```mermaid
-graph TD
-    User([Cliente]) -->|Input Multimodal| Input_Layer
-    
-    subgraph Input_Layer [Capa de Adquisición]
-        Img[Imágenes<br/>/ Video]
-        Txt[Texto / Audio<br/>Transcrito]
-    end
-    
-    Input_Layer --> Recognition_Agent
-    
-    subgraph Recognition_Agent [Agente de Reconocimiento]
-        direction TB
-        YOLO[<small>Modelo YOLOv11<br/>Segmentación</small>]
-        Db[(<small>Base de Datos<br/>Productos</small>)]
-        
-        Img --> YOLO
-        YOLO -->|Extracción de<br/>Características| IDs[<small>Identificación de IDs:<br/>LE123, MS842</small>]
-        IDs -.->|Validación| Db
-    end
-    
-    Recognition_Agent --> Integration_Agent
-    Txt --> Integration_Agent
-    
-    subgraph Integration_Agent [Agente Integrador y Generativo]
-        Context[Contexto de<br/>Intención]
-        LLM[<small>Motor LLM<br/>Integración</small>]
-        
-        IDs --> LLM
-        Txt --> Context --> LLM
-        LLM -->|Relacionar Productos<br/>+ Intención| Script[<small>Generación<br/>de Guion</small>]
-    end
-    
-    Integration_Agent --> Output([Solicitud<br/>Refinada])
-    
-    style User fill:#f9f,stroke:#333
-    style Integration_Agent fill:#e1f5fe,stroke:#0277bd
-    style Recognition_Agent fill:#fff3e0,stroke:#ef6c00
-```
+![Diagrama de Arquitectura del Agente 2](assets/agent2_diagram.png)
+
+> Diagrama ilustrativo del flujo de información entre el cliente, el modelo de visión y el LLM.
 
 ### Explicación Detallada del Flujo
 
@@ -97,10 +59,10 @@ graph TD
 
 | Métrica | Valor Obtenido | Descripción |
 | :--- | :--- | :--- |
-| **Precisión de Detección (mAP@50)** | **~92%** | Mean Average Precision del modelo YOLO en validación. |
+| **Precisión de Detección (mAP@50)** | **~90%** | Mean Average Precision del modelo YOLO en validación. |
 | **Tiempo de Inferencia (Visión)** | **< 200ms** | Tiempo promedio para detectar objetos en una imagen estándar. |
-| **Latencia de Chat** | **< 2.5s** | Tiempo de respuesta promedio del agente conversacional (Stream). |
-| **Satisfacción de Intención** | **Alta** | Capacidad del modelo para mapear correctamente preguntas vagas a productos del catálogo. |
+| **Latencia de Chat** | **< 4s** | Tiempo de respuesta promedio del agente conversacional (Stream). |
+| **Satisfacción de Intención** | **Alta** | Capacidad del modelo para mapear correctamente preguntas a productos del catálogo. |
 
 ---
 
@@ -108,20 +70,25 @@ graph TD
 
 Puede visualizar el funcionamiento del agente, el reconocimiento en tiempo real y la generación de solicitudes en el siguiente video:
 
-[**>> Ver Video de Demostración en CapCut/YouTube <<**](#) *(Inserte enlace aquí)*
+[**>> Ver Video de Demostración en CapCut/YouTube <<**](https://www.youtube.com/watch?v=) 
 
 ---
 
 ## Conclusiones
 
-La integración de modelos de visión modernos (YOLOv11) con grandes modelos de lenguaje (LLMs) permite crear experiencias de usuario "Physical-Digital" fluidas. Este proyecto demuestra cómo una arquitectura desacoplada (Frontend React + Backend FastAPI) puede servir como base para soluciones empresariales escalables, donde el agente no solo "charla", sino que "ve" y "entiende" el contexto físico del usuario para generar leads de venta altamente calificados.
+La integración de modelos de visión modernos (YOLOv11) con grandes modelos de lenguaje (LLMs) permite crear experiencias de usuario "Physical-Digital" fluidas. Este proyecto demuestra cómo una arquitectura desacoplada (Frontend React + Backend FastAPI) puede servir como base para soluciones empresariales escalables, donde el agente no solo "charla", sino que "ve" y "entiende" el contexto físico del usuario para generar leads de venta altamente calificados, ademas en este caso nuestro agente responde cualquier inquietud del cliente para asi poder solventar todas las dudas antes de pasar al siguiente agente.
 
 ## Autores y Contacto
 
 **Equipo de Desarrollo:**
-*   [Tu Nombre / Nombre del Estudiante]
-*   Correo: estudiante@universidad.edu
-*   GitHub: [github.com/usuario](https://github.com)
+*   Marco Cajamarca
+*   Pablo Bravo
+*   Oscar Campoverde
+
+**Información Académica:**
+*   **Docente:** Ing. Remigio Hurtado
+*   **Asignatura:** Aprendizaje Automático
+*   **Periodo:** 67
 
 ---
 
