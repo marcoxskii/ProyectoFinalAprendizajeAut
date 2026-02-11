@@ -34,8 +34,6 @@ El Agente 2 opera mediante un flujo secuencial que transforma entradas multimoda
 
 ### Diagrama de Proceso (Mermaid)
 
-### Diagrama de Proceso (Mermaid)
-
 ```mermaid
 graph TD
     User([Cliente]) -->|Input Multimodal| Input_Layer
@@ -49,11 +47,11 @@ graph TD
     
     subgraph Recognition_Agent [Agente de Reconocimiento]
         direction TB
-        YOLO[Modelo YOLOv11<br/>Segmentación]
-        Db[(Base de Datos<br/>Productos)]
+        YOLO[<small>Modelo YOLOv11<br/>Segmentación</small>]
+        Db[(<small>Base de Datos<br/>Productos</small>)]
         
         Img --> YOLO
-        YOLO -->|Extracción de<br/>Características| IDs[Identificación de IDs:<br/>LE123, MS842]
+        YOLO -->|Extracción de<br/>Características| IDs[<small>Identificación de IDs:<br/>LE123, MS842</small>]
         IDs -.->|Validación| Db
     end
     
@@ -62,11 +60,11 @@ graph TD
     
     subgraph Integration_Agent [Agente Integrador y Generativo]
         Context[Contexto de<br/>Intención]
-        LLM[Motor LLM<br/>Integración]
+        LLM[<small>Motor LLM<br/>Integración</small>]
         
         IDs --> LLM
         Txt --> Context --> LLM
-        LLM -->|Relacionar Productos<br/>+ Intención| Script[Generación<br/>de Guion]
+        LLM -->|Relacionar Productos<br/>+ Intención| Script[<small>Generación<br/>de Guion</small>]
     end
     
     Integration_Agent --> Output([Solicitud<br/>Refinada])
