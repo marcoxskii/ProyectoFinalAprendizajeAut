@@ -1,5 +1,13 @@
 # Proyecto Integrado Final: Sistema Inteligente para Recomendación de Laptops (Agente 2)
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![YoloV11](https://img.shields.io/badge/YOLOv11-Ultralytics-blue?style=for-the-badge)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+
 ## Resumen
 Este proyecto implementa un sistema multimodal de inteligencia artificial diseñado para asistir a clientes en la compra de equipos de cómputo. La arquitectura combina un **Frontend moderno** en React para la interacción con el usuario y un **Backend robusto** en FastAPI con capacidades de reconocimiento de imágenes (Computer Vision) y procesamiento de lenguaje natural (LLM).
 
