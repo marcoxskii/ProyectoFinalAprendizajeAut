@@ -34,24 +34,26 @@ El Agente 2 opera mediante un flujo secuencial que transforma entradas multimoda
 
 ### Diagrama de Proceso (Mermaid)
 
+### Diagrama de Proceso (Mermaid)
+
 ```mermaid
 graph TD
     User([Cliente]) -->|Input Multimodal| Input_Layer
     
     subgraph Input_Layer [Capa de Adquisición]
-        Img[Imágenes / Video]
-        Txt[Texto / Audio Transcrito]
+        Img[Imágenes<br/>/ Video]
+        Txt[Texto / Audio<br/>Transcrito]
     end
     
     Input_Layer --> Recognition_Agent
     
     subgraph Recognition_Agent [Agente de Reconocimiento]
         direction TB
-        YOLO[Modelo YOLOv11 Segmentación]
-        Db[(Base de Datos Productos)]
+        YOLO[Modelo YOLOv11<br/>Segmentación]
+        Db[(Base de Datos<br/>Productos)]
         
         Img --> YOLO
-        YOLO -->|Extracción de Características| IDs[Identificación de IDs: LE123, MS842]
+        YOLO -->|Extracción de<br/>Características| IDs[Identificación de IDs:<br/>LE123, MS842]
         IDs -.->|Validación| Db
     end
     
@@ -59,15 +61,15 @@ graph TD
     Txt --> Integration_Agent
     
     subgraph Integration_Agent [Agente Integrador y Generativo]
-        Context[Contexto de Intención]
-        LLM[Motor LLM - Integración]
+        Context[Contexto de<br/>Intención]
+        LLM[Motor LLM<br/>Integración]
         
         IDs --> LLM
         Txt --> Context --> LLM
-        LLM -->|Relacionar Productos + Intención| Script[Generación de Guion]
+        LLM -->|Relacionar Productos<br/>+ Intención| Script[Generación<br/>de Guion]
     end
     
-    Integration_Agent --> Output([Solicitud Refinada])
+    Integration_Agent --> Output([Solicitud<br/>Refinada])
     
     style User fill:#f9f,stroke:#333
     style Integration_Agent fill:#e1f5fe,stroke:#0277bd
