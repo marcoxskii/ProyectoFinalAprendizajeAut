@@ -70,7 +70,7 @@ El Agente 2 opera mediante un flujo secuencial que transforma entradas multimoda
 
 Puede visualizar el funcionamiento del agente, el reconocimiento en tiempo real y la generación de solicitudes en el siguiente video:
 
-[**>> Ver Video de Demostración en CapCut/YouTube <<**](https://www.youtube.com/watch?v=) 
+[**>> Ver Video de Demostración en YouTube <<**](https://youtu.be/ppCPvVcXap0) 
 
 ---
 
